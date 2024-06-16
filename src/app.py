@@ -14,6 +14,12 @@ FOLIOS_HASTA = os.getenv('FOLIOS_HASTA')
 FRMA_ALGORITMO = os.getenv('FRMA_ALGORITMO')
 port = int(os.environ.get('PORT', 3000))
 
+
+@app.route('/', methods=['GET'])
+def health_check():
+    return jsonify({'status': 'ok'})
+
+
 @app.route('/sign', methods=['POST'])
 def sign_document():
     data = request.get_json()
