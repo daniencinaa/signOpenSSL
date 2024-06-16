@@ -12,7 +12,7 @@ RAZON_SOCIAL_EMISOR = os.getenv('RAZON_SOCIAL_EMISOR')
 FOLIOS_DESDE = os.getenv('FOLIOS_DESDE')
 FOLIOS_HASTA = os.getenv('FOLIOS_HASTA')
 FRMA_ALGORITMO = os.getenv('FRMA_ALGORITMO')
-
+port = int(os.environ.get('PORT', 3000))
 
 @app.route('/sign', methods=['POST'])
 def sign_document():
@@ -83,4 +83,4 @@ def sign_document():
 
 
 if __name__ == '__main__':
-    app.run(port=3000, debug=True)
+    app.run(debug=True, host='0.0.0.0', port=port)
